@@ -10,16 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      # Use GitHub Actions' cache to shorten build times and decrease load on servers
-      - uses: actions/cache@v2
+      
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+          ruby-version: 2.6 # can change this to 2.7 or whatever version you prefer
 
-      # Standard usage
-      - uses:  helaili/jekyll-action@v2
+      - name: install dependencies & build site
+        uses: limjh16/jekyll-action-ts@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          enable_cache: true
+
+      - name: 🚀 deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PUBLISH_TOKEN }}
+          publish_branch: gh-pages
