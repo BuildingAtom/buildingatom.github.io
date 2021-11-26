@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://buildingatom.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://buildingatom.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2021-09-20T04:28:07+00:00</updated><id>https://buildingatom.io/feed.xml</id><title type="html">BuildingAtom</title><subtitle>Blog of Adam Li</subtitle><entry><title type="html">And We’re Live!</title><link href="https://buildingatom.io/1/and-we-re-live" rel="alternate" type="text/html" title="And We’re Live!" /><published>2021-08-19T00:00:00+00:00</published><updated>2021-08-19T00:00:00+00:00</updated><id>https://buildingatom.io/1/and-we're-live</id><content type="html" xml:base="https://buildingatom.io/1/and-we-re-live">&lt;p&gt;This site has really been a long time coming. I’ve been sitting on this design for a while but hadn’t really had the chance turn it into a reality until these past few days. Though it’s still far from complete, I’m quite happy with where it is now.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://buildingatom.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://buildingatom.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2021-11-26T21:55:51+00:00</updated><id>https://buildingatom.io/feed.xml</id><title type="html">BuildingAtom</title><subtitle>Blog of Adam Li</subtitle><entry><title type="html">Getting MuJoCo 2.1 to work in Google Colab for OpenAi Gym with mujoco-py</title><link href="https://buildingatom.io/2/google-colab-mujoco-py-210-setup" rel="alternate" type="text/html" title="Getting MuJoCo 2.1 to work in Google Colab for OpenAi Gym with mujoco-py" /><published>2021-11-26T00:00:00+00:00</published><updated>2021-11-26T00:00:00+00:00</updated><id>https://buildingatom.io/2/google-colab-mujoco-py-210-setup</id><content type="html" xml:base="https://buildingatom.io/2/google-colab-mujoco-py-210-setup">&lt;p&gt;Nothing too much this time. Just finished struggling through the process of getting MuJoCo and mujoco-py working in Google Colab and thought it would be nice to share.
+All you have to do is add the following mess of code as a cell to the top of your notebook!&lt;/p&gt;
+
+&lt;h1 id=&quot;mujoco-21-working-in-google-colab-for-openai-gym-just-add-this-as-a-code-block-near-the-top-of-your-notebook-to-get-mujoco-setup&quot;&gt;MuJoCo 2.1 working in Google Colab for OpenAI gym. Just add this as a code block near the top of your notebook to get MuJoCo setup.&lt;/h1&gt;
+&lt;script src=&quot;https://gist.github.com/3119ac9c595324c8001a7454f23bf8c8.js&quot;&gt;&lt;/script&gt;
+
+&lt;noscript&gt;&lt;pre&gt;&lt;code&gt;
+
+File: google-colab-mujoco-py-setup.py
+-------------------------
+
+ #Include this at the top of your colab code
+import os
+if not os.path.exists('.mujoco_setup_complete'):
+  # Get the prereqs
+  !apt-get -qq update
+  !apt-get -qq install -y libosmesa6-dev libgl1-mesa-glx libglfw3 libgl1-mesa-dev libglew-dev patchelf
+  # Get Mujoco
+  !mkdir ~/.mujoco
+  !wget -q https://mujoco.org/download/mujoco210-linux-x86_64.tar.gz -O mujoco.tar.gz
+  !tar -zxf mujoco.tar.gz -C &quot;$HOME/.mujoco&quot;
+  !rm mujoco.tar.gz
+  # Add it to the actively loaded path and the bashrc path (these only do so much)
+  os.environ['LD_LIBRARY_PATH']=os.environ['LD_LIBRARY_PATH'] + ':/root/.mujoco/mujoco210/bin'
+  os.environ['LD_PRELOAD']=os.environ['LD_PRELOAD'] + ':/usr/lib/x86_64-linux-gnu/libGLEW.so'
+  !echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mujoco210/bin' &amp;gt;&amp;gt; ~/.bashrc 
+  !echo 'export LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libGLEW.so' &amp;gt;&amp;gt; ~/.bashrc 
+  # THE ANNOYING ONE, FORCE IT INTO LDCONFIG SO WE ACTUALLY GET ACCESS TO IT THIS SESSION
+  !echo &quot;/root/.mujoco/mujoco210/bin&quot; &amp;gt; /etc/ld.so.conf.d/mujoco_ld_lib_path.conf
+  !ldconfig
+  # Install Mujoco-py
+  !pip3 install -U 'mujoco-py&amp;lt;2.2,&amp;gt;=2.1'
+  # presetup so we don't see output on first env initialization
+  import mujoco_py
+  # run once
+  !touch .mujoco_setup_complete
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/noscript&gt;
+
+&lt;p&gt;*If there are any issues with formatting, I’ll fix them in a few days. This was written on a different system from usual.&lt;/p&gt;</content><author><name></name></author><category term="mujoco" /><summary type="html">Nothing too much this time. Just finished struggling through the process of getting MuJoCo and mujoco-py working in Google Colab and thought it would be nice to share. All you have to do is add the following mess of code as a cell to the top of your notebook!</summary></entry><entry><title type="html">And We’re Live!</title><link href="https://buildingatom.io/1/and-we-re-live" rel="alternate" type="text/html" title="And We’re Live!" /><published>2021-08-19T00:00:00+00:00</published><updated>2021-08-19T00:00:00+00:00</updated><id>https://buildingatom.io/1/and-we're-live</id><content type="html" xml:base="https://buildingatom.io/1/and-we-re-live">&lt;p&gt;This site has really been a long time coming. I’ve been sitting on this design for a while but hadn’t really had the chance turn it into a reality until these past few days. Though it’s still far from complete, I’m quite happy with where it is now.&lt;/p&gt;
 
 &lt;p&gt;I plan to use this as a little space to let out some thoughts from time to time, and as a place to share various projects, ideas, experience, or really whatever else happens. I’ll be writing this in more of a discussion or stream of consciousness style, and since it’ll be more a side thing, I wouldn’t expect too much in terms of good writing. Though, I’ll try to keep things at least somewhat polished.&lt;/p&gt;
 

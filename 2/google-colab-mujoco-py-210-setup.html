@@ -3,21 +3,23 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>BuildingAtom | Blog of Adam Li</title>
+<title>Getting MuJoCo 2.1 to work in Google Colab for OpenAi Gym with mujoco-py | BuildingAtom</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="BuildingAtom" />
+<meta property="og:title" content="Getting MuJoCo 2.1 to work in Google Colab for OpenAi Gym with mujoco-py" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Blog of Adam Li" />
-<meta property="og:description" content="Blog of Adam Li" />
-<link rel="canonical" href="https://buildingatom.io/" />
-<meta property="og:url" content="https://buildingatom.io/" />
+<meta name="description" content="Nothing too much this time. Just finished struggling through the process of getting MuJoCo and mujoco-py working in Google Colab and thought it would be nice to share. All you have to do is add the following mess of code as a cell to the top of your notebook!" />
+<meta property="og:description" content="Nothing too much this time. Just finished struggling through the process of getting MuJoCo and mujoco-py working in Google Colab and thought it would be nice to share. All you have to do is add the following mess of code as a cell to the top of your notebook!" />
+<link rel="canonical" href="https://buildingatom.io/2/google-colab-mujoco-py-210-setup" />
+<meta property="og:url" content="https://buildingatom.io/2/google-colab-mujoco-py-210-setup" />
 <meta property="og:site_name" content="BuildingAtom" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-26T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="BuildingAtom" />
+<meta property="twitter:title" content="Getting MuJoCo 2.1 to work in Google Colab for OpenAi Gym with mujoco-py" />
 <script type="application/ld+json">
-{"description":"Blog of Adam Li","headline":"BuildingAtom","@type":"WebSite","url":"https://buildingatom.io/","name":"BuildingAtom","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://buildingatom.io/assets/logo-static.svg"}},"@context":"https://schema.org"}</script>
+{"description":"Nothing too much this time. Just finished struggling through the process of getting MuJoCo and mujoco-py working in Google Colab and thought it would be nice to share. All you have to do is add the following mess of code as a cell to the top of your notebook!","headline":"Getting MuJoCo 2.1 to work in Google Colab for OpenAi Gym with mujoco-py","dateModified":"2021-11-26T00:00:00+00:00","datePublished":"2021-11-26T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://buildingatom.io/2/google-colab-mujoco-py-210-setup"},"url":"https://buildingatom.io/2/google-colab-mujoco-py-210-setup","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://buildingatom.io/assets/logo-static.svg"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="canonical" href="https://buildingatom.io/" />
+<link rel="canonical" href="https://buildingatom.io/2/google-colab-mujoco-py-210-setup" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Cabin:wght@300;400;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/main.css"><link type="application/atom+xml" rel="alternate" href="https://buildingatom.io/feed.xml" title="BuildingAtom" />
 </head>
@@ -45,8 +47,7 @@
 </header>
 <main class="content" aria-label="Content">
       <div class="wrapper">
-        <div class="blog">
-<ul class="post-list"><li><header class="post-header">
+        <article class="post single-view" itemscope itemtype="http://schema.org/BlogPosting"><header class="post-header">
   <div class="post-num-date-title">
     <input type="checkbox" id="post-num-date-2" class="post-num-date-trigger" />
     <label for="post-num-date-2">
@@ -65,8 +66,8 @@
     </label>
   </div>
   <p class="post-areas-tags"><a href="/areas/robotics" class="post-areas"><span class="large-symbol"><i class="bi bi-journal-bookmark-fill"></i></span>robotics</a>,&nbsp;<a href="/areas/code" class="post-areas"><span class="large-symbol"><i class="bi bi-journal-bookmark-fill"></i></span>code</a>;&nbsp;<a href="/tags/mujoco" class="post-tags"><span class="large-symbol">#</span>mujoco</a>;&nbsp;<a href="https://buildingatom.io/2/google-colab-mujoco-py-210-setup#disqus_thread" class="bi bi-chat">Add a comment</a></p>
-</header><div class="post-content e-content">
-          <p>Nothing too much this time. Just finished struggling through the process of getting MuJoCo and mujoco-py working in Google Colab and thought it would be nice to share.
+</header><div class="post-content e-content" itemprop="articleBody">
+    <p>Nothing too much this time. Just finished struggling through the process of getting MuJoCo and mujoco-py working in Google Colab and thought it would be nice to share.
 All you have to do is add the following mess of code as a cell to the top of your notebook!</p>
 
 <h1 id="mujoco-21-working-in-google-colab-for-openai-gym-just-add-this-as-a-code-block-near-the-top-of-your-notebook-to-get-mujoco-setup">MuJoCo 2.1 working in Google Colab for OpenAI gym. Just add this as a code block near the top of your notebook to get MuJoCo setup.</h1>
@@ -107,41 +108,31 @@ if not os.path.exists('.mujoco_setup_complete'):
 
 <p>*If there are any issues with formatting, I’ll fix them in a few days. This was written on a different system from usual.</p>
 
-        </div>
-      </li><li><header class="post-header">
-  <div class="post-num-date-title">
-    <input type="checkbox" id="post-num-date-1" class="post-num-date-trigger" />
-    <label for="post-num-date-1">
-      <div class="post-num-date">
-        <div class="post-date">
-          <p><time class="dt-published" datetime="2021-08-19T00:00:00+00:00" itemprop="datePublished">
-            <span class="month">AUG</span>
-            <span class="day">19</span>
-            <span class="year">2021</span>
-           </time></p>
-        </div>
-        <div class="post-num">
-          <p>1</p>
-        </div>
-      </div></a><h1 class="title" itemprop="name headline"><a class="post-link" href="/1/and-we-re-live">And We&#39;re Live!</a></h1>
-    </label>
   </div>
-  <p class="post-areas-tags"><a href="/areas/webdev" class="post-areas"><span class="large-symbol"><i class="bi bi-journal-bookmark-fill"></i></span>webdev</a>;&nbsp;<a href="https://buildingatom.io/1/and-we-re-live#disqus_thread" class="bi bi-chat">Add a comment</a></p>
-</header><div class="post-content e-content">
-          <p>This site has really been a long time coming. I’ve been sitting on this design for a while but hadn’t really had the chance turn it into a reality until these past few days. Though it’s still far from complete, I’m quite happy with where it is now.</p>
+  
+</article>
 
-<p>I plan to use this as a little space to let out some thoughts from time to time, and as a place to share various projects, ideas, experience, or really whatever else happens. I’ll be writing this in more of a discussion or stream of consciousness style, and since it’ll be more a side thing, I wouldn’t expect too much in terms of good writing. Though, I’ll try to keep things at least somewhat polished.</p>
+  
 
-<p>Unfortunately, I’m going to have to take a pause from this for a while again. At the very least, this is somewhat presentable, and I can slowly start filling it with content for the next while.</p>
 
-<p>If anyone wants to see one of my (really rough) drawings that show roughly how the website will look, <a href="/assets/posts/imgs/2021-08-19-design.jpg">you can find it here</a>.</p>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://buildingatom.io/2/google-colab-mujoco-py-210-setup';
+      this.page.identifier = 'https://buildingatom.io/2/google-colab-mujoco-py-210-setup';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://buildingatom.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-        </div>
-      </li></ul>
-
-    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
-
-  <script id="dsq-count-scr" src="//buildingatom.disqus.com/count.js" async></script>
+  
+    <script id="dsq-count-scr" src="//buildingatom.disqus.com/count.js" async></script>
+  
 
 
       </div>
