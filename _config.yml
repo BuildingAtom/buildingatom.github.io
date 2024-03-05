@@ -60,7 +60,7 @@ show-description: false
 copyright:
   symbol: true
   text: >- # supports markdown
-    2021 Adam Li / @BuildingAtom
+    2021-2024 Adam Li / @BuildingAtom
 # Icons are automatically pulled from simpleicons.org. Use the
 # slug name as the tag and pay attention to brand guidelines.
 social-pre: 
@@ -73,7 +73,7 @@ socials:
 #  flickr:
 #  instagram:
 #  pinterest:
-#  linkedin:
+  linkedin: https://www.linkedin.com/in/buildingatom/
 #  youtube:
 #  twitch:
 #  steam:

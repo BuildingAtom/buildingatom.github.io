@@ -12,12 +12,23 @@ $content-title-line-height: 1.2;
   padding: $spacing-unit/2 0;
   flex: 1;
 }
+.vcenter-content {
+  padding: $spacing-unit/2 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
 .page-header {
   margin-top: $spacing-unit/2;
 }
 .title {
   margin: 0;
   font-size: $content-title-size;
+  line-height: $content-title-line-height;
+}
+.bigtitle {
+  margin: 0;
+  font-size: $content-title-size*2;
   line-height: $content-title-line-height;
 }
 
@@ -48,4 +59,66 @@ $content-title-line-height: 1.2;
 .page-content {
   padding: $spacing-unit 0;
   flex: 1;
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  .content-block {
+    margin: 0 #{-$spacing-unit} $spacing-unit #{-$spacing-unit};
+    padding: #{$spacing-unit * 0.5} $spacing-unit 0 $spacing-unit;
+  }
+
+  .no-pre {
+    margin-top: #{-$spacing-unit * 0.5};
+    * {
+      margin-top: revert;
+    }
+  }
+
+  .gray, .grey {
+    background-color: $grey-color-light;
+  }
+
+  .justify {
+    text-align: justify;
+    h1, h2, h3, h4, h5, h6 {
+      text-align: initial;
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6{
+    &.justify{
+      text-align: justify;
+    }
+  }
+
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    &> :nth-child(n+2) {
+      margin-left:$spacing-unit;
+    }
+    .flex-expand {
+      flex: 1;
+    }
+  }
+
+  .fullwidth {
+    margin: 0 #{-$spacing-unit};
+  }
 }

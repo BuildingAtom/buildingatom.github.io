@@ -1,11 +1,14 @@
 - name: Blog
   href: /
 
-- name: Areas
-  href: /areas/
+# - name: Areas
+#   href: /areas/
 
-- name: Projects
-  href: /projects/
+# - name: Projects
+#   href: /projects/
+
+- name: Research
+  href: /research/
 
 - name: About
   href: /about/
